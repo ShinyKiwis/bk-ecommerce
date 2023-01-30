@@ -2,16 +2,22 @@
 public/: Store images here such as logo
 
 src/asset: I have no idea
+
 src/component: This folder is for individual component, each component is stored in
 its own folder with corresponding files, for example:
 - PrimaryButton (Component folder must be in CamelCase):
   - index.jsx (vite require the jsx extension)
   - PrimaryButton.module.css 
   - Other files
+
 src/hooks: This folder is for universal hooks such as API caller 
+
 src/pages: This folder is for pages such as SignIn, SignUp, HomePage,...
+
 src/styles: This folder is for styles of PAGES not COMPONENT
+
 src/providers: This folder is for providers use for authentication
+
 Simply skip the App.jsx, main.jsx, App.css and index.css
 
 # Third-party libraries
