@@ -1,8 +1,11 @@
 import React from 'react'
+import { ProductInfo, QuantityButton } from '../components'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <QuantityButton />
+    </div>
   )
 }
 
