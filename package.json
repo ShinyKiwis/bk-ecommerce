@@ -10,8 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
+    "bootstrap": "^5.2.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-bootstrap": "^2.7.0",
+    "react-dom": "^18.2.0",
+    "react-icons-kit": "^2.0.0",
+    "react-router-dom": "^6.8.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
@@ -25,5 +31,18 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.3",
     "vite": "^4.0.0"
-  }
+  },
+  "description": "public/: Store images here such as logo",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShinyKiwis/bk-ecommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShinyKiwis/bk-ecommerce/issues"
+  },
+  "homepage": "https://github.com/ShinyKiwis/bk-ecommerce#readme"
 }
