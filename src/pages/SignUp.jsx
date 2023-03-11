@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import FormInput from "../components/FormInput";
-import PasswordInput from "../components/PasswordInput";
+import Header from "../components/Header/Header";
+import FormInput from "../components/InputField/InputField";
+import PasswordInput from "../components/PasswordField/PasswordInput";
 import"../components/formInput.css";
 import { useNavigate } from "react-router-dom";
 
@@ -55,7 +56,9 @@ const SignUp = () => {
 
 
   return (
-    <div className="signUp">
+    
+    <><Header /><div className="signUp">
+
       
       <form >
         <h1>Register</h1>
@@ -67,32 +70,9 @@ const SignUp = () => {
       </form>
       
 
-    </div>
+      </div></>
   );
 };
 
 
-
-
-
-
-
-
-
-
-
-//   return (
-//     <div className="SignUp">
-
-//       <form>
-//         <FormInput placeholder="Username" />
-//         <FormInput placeholder="Email address" />
-//         <FormInput placeholder="Password" />
-//         <FormInput placeholder="Username" />
-
-//       </form>
-//       <button>Register</button>
-//     </div>
-//   );
-// };
 export default SignUp;

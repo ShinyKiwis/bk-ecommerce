@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import FormInput from "../components/FormInput";
-import PasswordInput from "../components/PasswordInput";
+import Header from "../components/Header/Header";
+import FormInput from "../components/InputField/InputField";
+import PasswordInput from "../components/PasswordField/PasswordInput";
 import"../components/formInput.css";
 import { useNavigate } from "react-router-dom";
 
@@ -37,18 +38,18 @@ const Login = () => {
 
 
   return (
-    <div className="signUp">
-      
-      <form >
-        <h1>Register</h1>
-        <FormInput {...UsernameProps}  onChange={e => setUsername(e.target.value)}/>
-        <PasswordInput {...PasswordProps}  onChange={e => setPassword(e.target.value)}/>
-        <button onClick={handleSubmit}>Login</button>
-        <button className="secondary" onClick={()=>navigate('/SignUp')}>Sign Up</button>
-      </form>
-      
+    <><Header /><div className="signUp">
 
-    </div>
+      <form>
+        <h1>Login</h1>
+        <FormInput {...UsernameProps} onChange={e => setUsername(e.target.value)} />
+        <PasswordInput {...PasswordProps} onChange={e => setPassword(e.target.value)} />
+        <button onClick={handleSubmit}>Login</button>
+        <button className="secondary" onClick={() => navigate('/SignUp')}>Sign Up</button>
+      </form>
+
+
+    </div></>
   );
 };
 
