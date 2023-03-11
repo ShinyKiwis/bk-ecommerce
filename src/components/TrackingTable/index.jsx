@@ -1,7 +1,14 @@
 import React, {useState} from "react"
 import TrackingTableStyles from './TrackingTable.module.css'
 
-function TrackingTable ({billList}) {
+const data = [
+    { orderCode: "#ABCDE", orderDate: "19/6/2022", totalFee: "$323", status: "completed" },
+    { orderCode: "#12AV", orderDate: "1/9/2022", totalFee: "$42.3", status: "completed" },
+    { orderCode: "#36GT3", orderDate: "25/2/2023", totalFee: "$124", status: "shippng" },
+    { orderCode: "#SD45", orderDate: "2/3/2023", totalFee: "$12", status: "preparing" },
+]
+
+function TrackingTable () {
     return (
         <div className={TrackingTableStyles.tracking_table}>
             <table>
@@ -11,7 +18,7 @@ function TrackingTable ({billList}) {
                     <th>TOTAL</th>
                     <th>STATUS</th>
                 </tr>
-                {billList.map((val, key) => {
+                {data.map((val, key) => {
                 return (
                     <tr key={key}>
                         <td>{val.orderCode}</td>

@@ -20,6 +20,6 @@
 }
 
 .tracking_table td {
-    padding: 0.5em;
+    padding: 0.5em 0.5em 0.5em 0;
     border-bottom: 0.001em solid ;
 }
