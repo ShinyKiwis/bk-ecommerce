@@ -1,0 +1,25 @@
+* {
+    color: #59585B;
+}
+
+.tracking_table {
+    width: 84%;
+    margin: 4% 8%;
+    display: flex;
+    justify-content: left;
+}
+
+.tracking_table table {
+    border-collapse: collapse;
+}
+
+.tracking_table th {
+    padding: 0 1.5em 1.5em 0;
+    font-weight: unset;
+    border-bottom: 0.001em solid ;
+}
+
+.tracking_table td {
+    padding: 0.5em;
+    border-bottom: 0.001em solid ;
+}

@@ -1,0 +1,50 @@
+.card{
+    width: 84%;
+    margin: 4% 8%;
+    display: inline-grid;
+    grid-template-columns: 34% 33% 33%;
+    /* grid-template-rows: 34% 33% 33%; */
+    grid-template-areas:
+        'image name name'
+        'image price price'
+        'image quantity remove';
+}
+
+.image {
+    grid-area: image;
+}
+
+.image img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.card h1 {
+    grid-area: name;
+    font-size: 1em;
+    padding: 0 0.5em;
+    margin: 0;
+}
+
+.card h2 {
+    grid-area: price;
+    font-size: 0.8em;
+    padding: 0 0.5em;
+    margin: 0;
+}
+
+.card .btn{
+    padding: 0 0.5em;
+    margin: 0;
+}
+
+.card QuantityButton {
+    grid-area: quantity;
+}
+
+.card .removeBtn {
+    grid-area: remove;
+    width: 100%;
+    background-color: white;
+    border: 0.01em solid black;
+}
