@@ -1,8 +1,10 @@
 import React from 'react'
+import { CartItem, TrackingTable } from '../components'
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <div>
+    </div>
   )
 }
 

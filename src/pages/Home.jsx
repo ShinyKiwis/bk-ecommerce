@@ -1,10 +1,9 @@
 import React from 'react'
-import { ProductInfo, QuantityButton } from '../components'
+import { ProductInfo, QuantityButton, CartItem, TrackingTable} from '../components'
 
 const Home = () => {
   return (
     <div>
-      <QuantityButton />
     </div>
   )
 }

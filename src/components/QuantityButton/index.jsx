@@ -15,7 +15,7 @@ function QuantityButton() {
   };
 
   return (
-    <IconContext.Provider value={{ size: "24px" }}>
+    <IconContext.Provider value={{ size: "1em" }}>
       <div className={styles.display}>
         <button
           className={styles.display__btn}
