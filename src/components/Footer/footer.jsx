@@ -1,10 +1,22 @@
-import React from 'react';
-import TwitterIcon from "../../components/Icons/TwitterIcon.js";
-import FacebookIcon from "../../components/Icons/FacebookIcon.js";
-import GithubIcon from "../../components/Icons/GithubIcon.js";
-import LinkedinIcon from "../../components/Icons/LinkedinIcon.js";
-
-const Footer =() => {
+import  styles from "./Footer.module.css";
+import {SlSocialFacebook, SlSocialInstagram, SlSocialInstagram} from "react-icons/sl";
+import { useNavigate } from "react-router-dom";
 
 
-}
+
+const Footer = (props) => {
+  return (
+    <footer className={styles.footer}>
+       
+        <h2 className={styles.name}> About the shop</h2>
+        < SlSocialFacebook size={40}/> <SlSocialInstagram size={40}/> <SlSocialInstagram size={40}/>
+        <p className={styles.item}>Privace Policy </p>
+        <p className={styles.item}>Return Policy </p>
+        <p className={styles.item}>Term of Service </p>
+        <p className={styles.item}>FAQ </p>
+            
+    </footer>
+  );
+};
+
+export default Footer;
