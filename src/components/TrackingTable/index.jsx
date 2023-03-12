@@ -1,4 +1,3 @@
-import React, {useState} from "react"
 import TrackingTableStyles from './TrackingTable.module.css'
 
 const data = [
