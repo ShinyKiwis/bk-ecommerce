@@ -5,11 +5,11 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const PasswordInput = (props) => {
   const [focused, setFocused] = useState(false);
-  const { label, errorMessage, onChange, id, ...inputProps } = props;
+  const { label, errorMessage, onChange, ...inputProps } = props;
   const [showPassword, setShowPassword] = useState(false);
   // const [passwordIcon, setPasswordIcon] = useState(AiFillEye);
 
-  const handleFocus = (e) => {
+  const handleFocus = () => {
     setFocused(true);
   };
 
