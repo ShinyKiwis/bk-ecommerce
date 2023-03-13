@@ -1,0 +1,33 @@
+.footer {
+    background-color: #f9deb7;
+    width: 100%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+  }
+  
+.name {
+
+    margin-left: 10%;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(43, 43, 48);
+    
+  }
+
+.item {
+    margin-left: 10%;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: rgb(43, 43, 48);
+    cursor: pointer;
+  }
+
+.icon{
+    margin-left: 10%;
+    margin-bottom: 30px;
+    display: inline-block;
+    color:rgb(43, 43, 48);
+    cursor: pointer;
+}
+  

@@ -1,0 +1,24 @@
+.header {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+
+  }
+  
+.name {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(16, 0, 135);
+    
+  }
+  
+.item {
+    margin-left: 20%;
+    display: inline-block;
+    font-size: 60px;
+    color:rgb(255, 128, 0);
+    cursor: pointer;
+  }

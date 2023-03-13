@@ -1,11 +1,13 @@
 import React from 'react'
-import { ProductInfo, QuantityButton } from '../components'
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate=useNavigate();
   return (
     <div>
-      <QuantityButton />
+      <button onClick={() => navigate('/SignUp')}>Login</button>ss
     </div>
+
   )
 }
 
