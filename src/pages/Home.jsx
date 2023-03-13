@@ -1,15 +1,10 @@
 import React from 'react'
-
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div class="max-width">
-      <h1>About the shop</h1>
-      <h2>Contact Us</h2>
-      <div className="socials">
-               
-                    <button onclick="location.href='login'">Login</button>
-                  </div>
+    <div>
+      <button onClick={() => navigate('/SignUp')}>Login</button>ss
     </div>
 
   )
