@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 import FormInput from "../components/InputField/InputField";
 import PasswordInput from "../components/PasswordField/PasswordInput";
 import"../components/formInput.css";
@@ -70,7 +71,8 @@ const SignUp = () => {
       </form>
       
 
-      </div></>
+      </div>
+    <Footer /></>
   );
 };
 
