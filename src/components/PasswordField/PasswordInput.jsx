@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from "react";
-import  styles from  './PasswordInput.module.css';
+import styles from "./PasswordInput.module.css";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-
 
 const PasswordInput = (props) => {
   const [focused, setFocused] = useState(false);
@@ -12,7 +13,6 @@ const PasswordInput = (props) => {
   const handleFocus = () => {
     setFocused(true);
   };
-
 
   // const handelToggle = () => {
   //   if (showPassword === true) {
@@ -26,7 +26,6 @@ const PasswordInput = (props) => {
 
   return (
     <div className={styles.passwordInput}>
-     
       <input
         {...inputProps}
         type={showPassword ? "text" : "password"}
@@ -34,7 +33,16 @@ const PasswordInput = (props) => {
         onBlur={handleFocus}
         focused={focused.toString()}
       />
-      <span className={styles.icon} onClick={()=>setShowPassword(!showPassword)}><AiFillEye size={18}/></span>
+      <span
+        className={styles.icon}
+        onClick={() => setShowPassword(!showPassword)}
+      >
+        {showPassword ? (
+          <AiFillEyeInvisible size={18} />
+        ) : (
+          <AiFillEye size={18} />
+        )}
+      </span>
       <span className={styles.placeholder}>{label}</span>
       <span className={styles.primary}>{errorMessage}</span>
     </div>

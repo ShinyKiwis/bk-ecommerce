@@ -2,9 +2,8 @@ import { useState } from "react";
 import style from "./InputField.module.css";
 
 
-const InputField = (props) => {
+const InputField = ({label, errorMessage, onChange, id, ...inputProps}) => {
   const [focused, setFocused] = useState(false);
-  const { label, errorMessage, onChange, id, ...inputProps } = props;
 
   const handleFocus = (e) => {
     setFocused(true);
@@ -17,7 +16,6 @@ const InputField = (props) => {
         {...inputProps}
         onChange={onChange}
         onBlur={handleFocus}
-        focused={focused.toString()}
       />
       <span className={style.placeholder}>{label}</span>
       <span className={style.primary}>{errorMessage}</span>
