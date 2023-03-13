@@ -4,7 +4,7 @@ import FormInput from "../components/InputField/InputField";
 import PasswordInput from "../components/PasswordField/PasswordInput";
 import"../components/formInput.css";
 import { useNavigate } from "react-router-dom";
-
+import Footer from "../components/Footer/Footer";
 
 const Login = () => {
   const navigate=useNavigate();
@@ -49,7 +49,8 @@ const Login = () => {
       </form>
 
 
-    </div></>
+    </div>
+    <Footer /></>
   );
 };
 

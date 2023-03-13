@@ -3,8 +3,7 @@ import {AiOutlineSlack} from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
 
-
-const Header = (props) => {
+function Header() {
   return (
     <header className={styles.header}>
         <AiOutlineSlack   onClick={() => navigate('/Signup')} size={60} className={styles.item} />
