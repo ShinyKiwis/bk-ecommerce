@@ -1,0 +1,28 @@
+.Account {
+    color: #59585B;
+}
+
+.Account .page_name{
+    color: inherit;
+    font-size: 2em;
+    text-align: center;
+}
+
+.Account ul {
+    list-style-type: none;
+}
+
+.Account li {
+    display: flex;
+}
+
+.Account li .tittle {
+    width: 20%;
+    margin: 0.6em 0;
+    text-align: right;
+}
+
+.Account li .content {
+    margin: 0.6em;
+    width: 80%;
+}

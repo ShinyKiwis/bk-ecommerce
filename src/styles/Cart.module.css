@@ -1,0 +1,9 @@
+.cart .item_list{
+    list-style-type: none;
+}
+
+.cart .page_name{
+    color: #59585B;
+    font-size: 2em;
+    text-align: center;
+}

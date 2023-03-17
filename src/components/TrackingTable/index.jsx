@@ -1,6 +1,7 @@
 import TrackingTableStyles from './TrackingTable.module.css'
+import { useNavigate } from "react-router-dom";
 
-const data = [
+const dummyData = [
     { orderCode: "#ABCDE", orderDate: "19/6/2022", totalFee: "$323", status: "completed" },
     { orderCode: "#12AV", orderDate: "1/9/2022", totalFee: "$42.3", status: "completed" },
     { orderCode: "#36GT3", orderDate: "25/2/2023", totalFee: "$124", status: "shippng" },
@@ -8,6 +9,8 @@ const data = [
 ]
 
 function TrackingTable () {
+    const navigate = useNavigate();
+
     return (
         <div className={TrackingTableStyles.tracking_table}>
             <table>
@@ -17,10 +20,10 @@ function TrackingTable () {
                     <th>TOTAL</th>
                     <th>STATUS</th>
                 </tr>
-                {data.map((val, key) => {
+                {dummyData.map((val, key) => {
                 return (
                     <tr key={key}>
-                        <td>{val.orderCode}</td>
+                        <td><button className={TrackingTableStyles.btn} onClick={()=>navigate('/bill', {state: val.orderCode})} >{val.orderCode}</button></td>
                         <td>{val.orderDate}</td>
                         <td>{val.totalFee}</td>
                         <td>{val.status}</td>

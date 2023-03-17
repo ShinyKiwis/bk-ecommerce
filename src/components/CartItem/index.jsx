@@ -2,7 +2,8 @@ import React, {useState} from "react"
 import CartItemStyles from './CartItem.module.css'
 import {QuantityButton} from "../../components"
 
-function CartItem({imgSrc, productName, productPrice}) {
+function CartItem (props) {
+  const {imgSrc, productName, productPrice, canModify, quantity, totalPrice} = props
   const [visible, setVisible] = useState(true)
 
   const removeItem = () => {
@@ -16,15 +17,24 @@ function CartItem({imgSrc, productName, productPrice}) {
           src={imgSrc}
           alt="cart item"/>
       </div>
-      <h1>{productName}</h1>
-      <h2>{productPrice}</h2>
+      <p className={CartItemStyles.product_name}>{productName}</p>
+      <p className={CartItemStyles.product_price}>{productPrice}</p>
       
-      <div className={CartItemStyles.btn}><QuantityButton /></div>
-      <div className={CartItemStyles.btn}>
-        <button className={CartItemStyles.removeBtn} onClick={removeItem}> 
-          Remove
-        </button> 
-      </div>
+      {canModify ? (
+        <div className={CartItemStyles.btn}><QuantityButton className={CartItemStyles.quantityBtn}/></div>
+      ):(
+        <div className={CartItemStyles.box}>{quantity}</div>
+      )}
+
+      {canModify ? (
+        <div className={CartItemStyles.btn}>
+          <button className={CartItemStyles.removeBtn} onClick={removeItem}> 
+            Remove
+          </button> 
+        </div>
+      ):(
+        <div className={CartItemStyles.box}>{totalPrice}</div>
+      )}
     </div>
     )
   )

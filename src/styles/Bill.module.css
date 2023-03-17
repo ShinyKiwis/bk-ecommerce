@@ -1,0 +1,54 @@
+.Bill {
+    color: #59585B;
+}
+
+.Bill .page_name,
+.Bill h1 {
+    color: inherit;
+    font-size: 1.3em;
+    display: flex;
+    margin: 1em;
+}
+
+.Bill p {
+    color: inherit;
+    font-size: 1em;
+    display: flex;
+    font-weight: unset;
+    margin: 0.5em 0;
+}
+
+.Bill .order_status {
+    margin: 1em 1em;
+}
+
+.Bill .bill{
+    margin: 2em;
+    border-bottom: 0.01em solid #59585B;
+    border-top: 0.01em solid #59585B;
+
+}
+
+.Bill .item_list{
+    list-style-type: none;
+}
+
+.Bill .total{
+    display: flex;
+    justify-content: space-between;
+    border-top: 0.01em solid #59585B;
+}
+
+.Bill .total p{
+    /* display: inline-block; */
+}
+
+.Bill .shipping_address{
+    margin: 1em 1em;
+}
+
+.Bill .shipping_tittle {
+    padding: 1em 0;
+    border-bottom: 0.01em solid #59585B;
+}
+

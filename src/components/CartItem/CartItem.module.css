@@ -1,6 +1,6 @@
 .card{
     width: 84%;
-    margin: 4% 8%;
+    margin: 2% 8%;
     display: inline-grid;
     grid-template-columns: 34% 33% 33%;
     /* grid-template-rows: 34% 33% 33%; */
@@ -19,14 +19,14 @@
     object-fit: contain;
 }
 
-.card h1 {
+.card .product_name {
     grid-area: name;
     font-size: 1em;
     padding: 0 0.5em;
     margin: 0;
 }
 
-.card h2 {
+.card .product_price {
     grid-area: price;
     font-size: 0.8em;
     padding: 0 0.5em;
@@ -34,17 +34,38 @@
 }
 
 .card .btn{
-    padding: 0 0.5em;
-    margin: 0;
+    padding: 0;
+    margin: 0.5em;
+    border: 0.01em solid black;
 }
 
-.card QuantityButton {
+.card button {
+    all: unset;
+}
+
+.card .quantityBtn {
     grid-area: quantity;
+    
 }
 
 .card .removeBtn {
     grid-area: remove;
     width: 100%;
     background-color: white;
+    border: none;
+    color: black;
+    font-size: 1em;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    padding: 0;
+    margin: 0.5em;
     border: 0.01em solid black;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(240, 240, 240);
 }

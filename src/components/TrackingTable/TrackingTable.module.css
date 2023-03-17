@@ -19,7 +19,21 @@
     border-bottom: 0.001em solid ;
 }
 
+button {
+    all: unset;
+}
+
 .tracking_table td {
     padding: 0.5em 0.5em 0.5em 0;
     border-bottom: 0.001em solid ;
+}
+
+.tracking_table .btn{
+    font-size: 1em;
+    background-color: white;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    font-weight: unset;
+    height: 1.5em;
 }
