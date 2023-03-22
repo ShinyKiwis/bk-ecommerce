@@ -1,0 +1,174 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: 0.5s;
+}
+
+.not_overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: 1s;
+  transform: translateX(-100%);
+  
+}
+
+.sidebar_header {
+  margin-top: 0.8em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hide {
+  position: fixed;
+  width: 60%;;
+  height: 100%;
+  background-color: var(--white);
+  transition-duration: 2s;
+  transform: translateX(-400%);
+}
+
+.sidebar_content {
+  margin-left: 1em;
+}
+
+.sidebar_content > h2 {
+  margin-top: 0em;
+  user-select: none;
+}
+
+.searchbar {
+  border: 2px solid var(--black);
+  border-radius: 0.6em;
+  padding: 0.2em 1em;
+}
+
+
+.searchbar>input {
+  font-family: 'Roboto Condensed';
+  font-size: 1.2em;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.searchbar>input::placeholder {
+  font-family: 'Roboto Condensed';
+  color: var(--grey);
+}
+
+
+.searchbar>input:focus {
+  outline: none;
+}
+
+.navbar_head {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    display: flex;
+    padding: 0 1em;
+    align-items: center;
+    gap: 1em;
+    margin-top: 1em;
+  }
+
+  .navbar_action {
+    display: flex;
+    margin-left: auto;
+    gap: 1em;
+  }
+  .sidebar {
+    position: fixed;
+    width: 60%;
+    height: 100%;
+    background-color: var(--white);
+    padding: 0em 0.8em;
+    transition: 0.5s;
+    transform: translateX(0);
+  }
+
+  .sidebar_content > p {
+    font-size: 1.2em;
+  }
+
+  .searchbar_container {
+    display: none;
+  }
+
+  .searchbar_container_show {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .searchbar {
+    display: flex;
+  }
+
+  .searchbar>input {
+    width: 13em;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .navbar {
+    display: flex;
+    padding: 0 1em;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    margin-top: 1em;
+  }
+
+  .navbar_action {
+    display: flex;
+    gap: 1em;
+  }
+  .sidebar {
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    background-color: var(--white);
+    padding: 0em 0.8em;
+    transition: 0.5s;
+    transform: translateX(0);
+  }
+  .sidebar_content > p {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  .searchbar {
+    display: flex;
+    align-items: center;
+  }
+  .searchbar>input{
+    width: 20em;
+  }
+
+  .searchbar_container>div:nth-child(1) {
+    display: none;
+  }
+
+  .searchbar_container {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .navbar_action>div:nth-child(1) {
+    display: none;
+  }
+}

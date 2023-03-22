@@ -1,11 +1,10 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
+import NavBar from '../components/NavBar'
 
 const Home = () => {
-  const navigate=useNavigate();
   return (
     <div>
-      <button onClick={() => navigate('/SignUp')}>Login</button>ss
+      <NavBar />
     </div>
 
   )
