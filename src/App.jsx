@@ -1,5 +1,5 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
-import { Cart, Home, Login, SignUp, History, Bill, Account } from "./pages";
+import { Cart, Home, Login, SignUp, History, Bill, Account, Product } from "./pages";
 
 function App() {
 
@@ -13,6 +13,7 @@ function App() {
         <Route path="/history" element={<History />}/>
         <Route path="/bill" element={<Bill />}/>
         <Route path="/account" element={<Account />}/>
+        <Route path="/product" element={<Product />}/>
       </Routes>
     </BrowserRouter>
   );
