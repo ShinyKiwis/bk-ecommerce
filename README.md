@@ -26,6 +26,7 @@ For this project, there will be some required libraries:
 - axios (no need to use fetch)
 - react-icons (for icons)
 - react-query (for calling to the API)
+- swiper (for image slider)
 
 # Eslint throw some error, what to do ?
 Vscode have function for skipping eslint error, simply use that. I will update the eslint 
