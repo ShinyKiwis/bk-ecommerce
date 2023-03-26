@@ -40,7 +40,7 @@ label{
   
   button{
       width: 100%;
-      height: 50px;
+      height: 30px;
       padding: 15px;
       border: none;
       background-color: #FF8A00;
@@ -51,11 +51,12 @@ label{
       cursor: pointer;
       margin-top: 15px;
       margin-bottom: 30px;
+      display: inline-block
   }
 
     .secondary{
     width: 100%;
-    height: 50px;
+    height: 30px;
     padding: 15px;
     border: none;
     background-color: #a0560b;
