@@ -16,6 +16,7 @@ const InputField = ({label, errorMessage, onChange, id, ...inputProps}) => {
         {...inputProps}
         onChange={onChange}
         onBlur={handleFocus}
+        focused={focused.toString()}
       />
       <span className={style.placeholder}>{label}</span>
       <span className={style.primary}>{errorMessage}</span>
