@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from "../components/Header/Header";
 import FormInput from "../components/InputField/InputField";
 import PasswordInput from "../components/PasswordField/PasswordInput";
-import"../components/formInput.css";
+import "../styles/Login.module.css"
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 
