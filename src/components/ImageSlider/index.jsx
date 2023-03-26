@@ -16,6 +16,16 @@ function ImageSlider({ images }) {
           delay: 2500,
           disableOnInteraction: false,
         }}
+        observeParents={false}
+        observer={false}
+        autoHeight={false}
+        breakpoints={{
+          1100: {
+            observeParents: true,
+            observer: true,
+            autoHeight: true
+          }
+        }}
         pagination={{
           clickable: true,
         }}

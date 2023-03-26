@@ -1,5 +1,5 @@
 .slider {
-    height: 30rem;
+    height: 20rem;
 }
 
 .swiper {
@@ -14,5 +14,11 @@
     height: 100%;
     object-fit: contain;
     object-position: center;
+}
+
+@media only screen and (min-width: 1100px) {
+    .slider {
+        height: 100%;
+    }
 }
   

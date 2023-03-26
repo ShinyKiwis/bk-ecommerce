@@ -1,5 +1,6 @@
 import React from "react";
-import { ImageSlider, ProductInfo, QuantityButton } from "../components";
+import { ImageSlider, ProductInfo } from "../components";
+import ProductStyle from "../styles/Product.module.css";
 
 const dummyImages = [
   "https://product.hstatic.net/1000392212/product/city_map_d942a93abd944547a24949398d9b0deb_master.png",
@@ -23,8 +24,10 @@ const dummy = {
 
 function Product() {
   return (
-    <div>
-      <ImageSlider images={dummyImages}></ImageSlider>
+    <div className={ProductStyle.display}>
+      <div className={ProductStyle.slider}>
+        <ImageSlider images={dummyImages}></ImageSlider>
+      </div>
       <div>
         <ProductInfo {...dummy} />
       </div>
