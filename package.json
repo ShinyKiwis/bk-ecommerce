@@ -11,13 +11,12 @@
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
-    "bootstrap": "^5.2.3",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-icons-kit": "^2.0.0",
     "react-router-dom": "^6.8.0",
+    "react-use-draggable-scroll": "^0.4.7",
     "swiper": "^9.1.1",
     "yarn": "^1.22.19"
   },

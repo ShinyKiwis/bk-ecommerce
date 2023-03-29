@@ -9,12 +9,19 @@ import {
 } from "react-icons/ai";
 import Icon from "../Icon";
 import WebName from "../WebName";
+import { Link, useNavigate } from "react-router-dom";
 
 const SideBar = ({ toggle, handleToggle }) => {
   const categories = ["Toy", "Phones"];
   return (
-    <div className={toggle ? NavBarStyle.overlay : NavBarStyle.not_overlay}>
-      <div className={toggle ? NavBarStyle.sidebar : NavBarStyle.hide}>
+    <div
+      className={toggle ? NavBarStyle.overlay : NavBarStyle.not_overlay}
+      onClick={handleToggle}
+    >
+      <div
+        className={toggle ? NavBarStyle.sidebar : NavBarStyle.hide}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className={NavBarStyle.sidebar_header}>
           <WebName />
           <Icon Icon={AiOutlineClose} onClick={handleToggle} />
@@ -25,6 +32,35 @@ const SideBar = ({ toggle, handleToggle }) => {
             return <p key={category}>{category}</p>;
           })}
         </div>
+      </div>
+    </div>
+  );
+};
+
+const Modal = ({ toggleProfile, handleToggleProfile }) => {
+  const navigate = useNavigate();
+  return (
+    <div
+      className={toggleProfile ? NavBarStyle.overlay : NavBarStyle.not_overlay}
+      onClick={handleToggleProfile}
+    >
+      <div
+        className={NavBarStyle.profile_modal}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+          Sign in
+        </button>
+        <span>
+          New customer ?{" "}
+          <Link to="/signup" style={{ color: "var(--primary)" }}>
+            Start here
+          </Link>
+        </span>
       </div>
     </div>
   );
@@ -62,32 +98,53 @@ const SearchBar = ({ toggleSearch, handleToggle }) => {
 const NavBar = () => {
   const [toggle, setToggle] = useState(false);
   const [toggleSearch, setToggleSearch] = useState(false);
+  const [toggleProfile, setToggleProfile] = useState(false);
+  const navigate = useNavigate();
   const handleToggle = () => {
     setToggle(!toggle);
   };
   const handleToggleSearch = () => {
     setToggleSearch(!toggleSearch);
   };
+
+  const handleToggleProfile = () => {
+    setToggleProfile(!toggleProfile);
+  };
+
   return (
-    <nav className={NavBarStyle.navbar}>
-      {toggleSearch ? (
-        <SearchBar toggleSearch={toggleSearch} handleToggle={handleToggleSearch} />
-      ) : (
-        <>
-          <div className={NavBarStyle.navbar_head}>
-            <Icon Icon={AiOutlineMenu} onClick={handleToggle} />
-            <WebName />
-          </div>
-          <SearchBar handleToggle={handleToggleSearch} />
-          <div className={NavBarStyle.navbar_action}>
-            <Icon Icon={AiOutlineSearch} onClick={handleToggleSearch} />
-            <Icon Icon={AiOutlineShopping} />
-            <Icon Icon={AiOutlineUser} />
-          </div>
-          <SideBar toggle={toggle} handleToggle={handleToggle} />
-        </>
+    <>
+      <nav className={NavBarStyle.navbar}>
+        {toggleSearch ? (
+          <SearchBar
+            toggleSearch={toggleSearch}
+            handleToggle={handleToggleSearch}
+          />
+        ) : (
+          <>
+            <div className={NavBarStyle.navbar_head}>
+              <Icon Icon={AiOutlineMenu} onClick={handleToggle} />
+              <WebName />
+            </div>
+            <SearchBar handleToggle={handleToggleSearch} />
+            <div className={NavBarStyle.navbar_action}>
+              <Icon Icon={AiOutlineSearch} onClick={handleToggleSearch} />
+              <Icon
+                Icon={AiOutlineShopping}
+                onClick={() => navigate("/cart")}
+              />
+              <Icon Icon={AiOutlineUser} onClick={handleToggleProfile} />
+            </div>
+            <SideBar toggle={toggle} handleToggle={handleToggle} />
+          </>
+        )}
+      </nav>
+      {toggleProfile && (
+        <Modal
+          toggleProfile={toggleProfile}
+          handleToggleProfile={handleToggleProfile}
+        />
       )}
-    </nav>
+    </>
   );
 };
 

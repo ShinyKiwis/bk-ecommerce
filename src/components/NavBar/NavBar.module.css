@@ -6,7 +6,9 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.6);
   transition: 0.5s;
+  z-index: 2;
 }
+
 
 .not_overlay {
   position: fixed;
@@ -16,7 +18,7 @@
   right: 0;
   transition: 1s;
   transform: translateX(-100%);
-  
+  z-index: 2;
 }
 
 .sidebar_header {
@@ -37,6 +39,7 @@
 
 .sidebar_content {
   margin-left: 1em;
+  margin-top: 1.5em;
 }
 
 .sidebar_content > h2 {
@@ -121,12 +124,30 @@
   .searchbar>input {
     width: 13em;
   }
+  .profile_modal {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 8%;
+    right: 2%;
+    background-color: var(--white);
+    padding: 1em;
+    border-radius: 0.4em;
+    border: 2px solid var(--primary);
+  }
+
+  .profile_modal>button {
+    text-align: center;
+    width: fit-content;
+    padding: 0.5em 2em;
+  }
 }
 
 @media only screen and (min-width: 992px) {
   .navbar {
     display: flex;
-    padding: 0 1em;
+    padding: 0 3em;
     align-items: center;
     justify-content: space-between;
     gap: 1em;
@@ -170,5 +191,24 @@
 
   .navbar_action>div:nth-child(1) {
     display: none;
+  }
+
+  .profile_modal {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 8%;
+    right: 2%;
+    background-color: var(--white);
+    padding: 1em;
+    border-radius: 0.4em;
+    border: 2px solid var(--primary);
+  }
+
+  .profile_modal>button {
+    text-align: center;
+    width: fit-content;
+    padding: 0.5em 2em;
   }
 }
