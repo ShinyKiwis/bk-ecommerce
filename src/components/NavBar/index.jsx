@@ -10,6 +10,7 @@ import {
 import Icon from "../Icon";
 import WebName from "../WebName";
 import { Link, useNavigate } from "react-router-dom";
+import Button from "../Button";
 
 const SideBar = ({ toggle, handleToggle }) => {
   const categories = ["Toy", "Phones"];
@@ -48,13 +49,13 @@ const Modal = ({ toggleProfile, handleToggleProfile }) => {
         className={NavBarStyle.profile_modal}
         onClick={(e) => e.stopPropagation()}
       >
-        <button
+        <Button
+          textContent={"Sign in"}
+          isPrimary={true}
           onClick={() => {
             navigate("/login");
           }}
-        >
-          Sign in
-        </button>
+        />
         <span>
           New customer ?{" "}
           <Link to="/signup" style={{ color: "var(--primary)" }}>

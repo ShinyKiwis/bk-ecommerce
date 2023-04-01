@@ -1,56 +1,26 @@
-import React, { useState } from 'react';
-import Header from "../components/Header/Header";
-import FormInput from "../components/InputField/InputField";
-import PasswordInput from "../components/PasswordField/PasswordInput";
-import "../styles/Login.module.css"
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer/Footer";
+import { Button, InputField, WebName } from "../components";
+import LoginStyle from "../styles/Login.module.css";
 
 const Login = () => {
-  const navigate=useNavigate();
-  const[password,setPassword]=useState("");
-  const[username,setUsername]=useState("");
-
-
-
-  const UsernameProps= {
-    name: "username",
-    type: "text",
-    errorMessage:
-      "Please provide username!",
-    label: "Username",
-    required: true,
-  }
-
-  const[PasswordProps, setPasswordProps]=useState({
-    name: "password",
-    errorMessage:
-      "Password is not empty!",
-    label: "Password",
-    required: true,
-  });
-
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-
+  const navigate = useNavigate();
   return (
-    <><Header /><div className="signUp">
-
-      <form>
-        <h1>Login</h1>
-        <FormInput {...UsernameProps} onChange={e => setUsername(e.target.value)} />
-        <PasswordInput {...PasswordProps} onChange={e => setPassword(e.target.value)} />
-        <button onClick={handleSubmit}>Login</button>
-        <button className="secondary" onClick={() => navigate('/SignUp')}>Sign Up</button>
-      </form>
-
-
-    </div>
-    <Footer /></>
+    <main className={LoginStyle.login_container}>
+      <WebName />
+      <h2>Sign in into your account</h2>
+      <div className={LoginStyle.action_container}>
+        <InputField type="text" placeholder="Username" />
+        <InputField type="password" placeholder="Password" />
+        <Button textContent="Sign in" isPrimary={true} />
+        <Button
+          textContent="Create an account"
+          isPrimary={false}
+          onClick={() => {
+            navigate("/signup");
+          }}
+        />
+      </div>
+    </main>
   );
 };
 

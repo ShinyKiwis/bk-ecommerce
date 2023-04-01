@@ -37,8 +37,8 @@ function Footer() {
   return (
     <footer className={FooterStyles.footer}>
       <h2 className={FooterStyles.name}> About the shop</h2>
-      <SlSocialFacebook size={40} className={FooterStyles.icon} />{" "}
-      <SlSocialInstagram size={40} className={FooterStyles.icon} />{" "}
+      <SlSocialFacebook size={40} className={FooterStyles.icon} />
+      <SlSocialInstagram size={40} className={FooterStyles.icon} />
       <SlSocialTwitter size={40} className={FooterStyles.icon} />
       {links.map((link) => (
         <FooterLink

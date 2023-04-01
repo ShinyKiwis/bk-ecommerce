@@ -1,11 +1,13 @@
-import IconStyle from "./Icon.module.css"
+import IconStyle from "./Icon.module.css";
 
-const Icon = ({Icon, onClick}) => {
+const Icon = ({ Icon, onClick, size }) => {
   return (
-    <div className={IconStyle.icon_container}>
-      <Icon size="2em" onClick={onClick}/>
-    </div>
-  )
-}
+    <Icon
+      size={size ? size : "2em"}
+      onClick={onClick}
+      className={IconStyle.icon_container}
+    />
+  );
+};
 
-export default Icon
+export default Icon;
