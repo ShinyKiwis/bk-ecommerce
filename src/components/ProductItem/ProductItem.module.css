@@ -1,9 +1,18 @@
 .product_card {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 1rem;
 }
 
 .product_info {
     display: flex;
+    flex-direction: column;
     align-items: center;
+}
+
+.product_card img{
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
 }
