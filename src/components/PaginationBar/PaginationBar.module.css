@@ -10,8 +10,7 @@
 .pagination_item {
     text-align: center;
     cursor: pointer;
-    height: 1.2rem;
-    width: 1.2rem;
+    padding: 0.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,5 +38,6 @@
 }
 
 .selected {
-    border-bottom: 1px solid black;
+    color: var(--black);
+    border-bottom: 1px solid var(--black);
   }

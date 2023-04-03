@@ -8,3 +8,4 @@ export { default as WebName } from "./WebName";
 export { default as Button } from "./Button";
 export { default as InputField } from "./InputField";
 export { default as ProductItem } from "./ProductItem";
+export { default as PaginationBar } from "./PaginationBar";
