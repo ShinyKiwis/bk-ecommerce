@@ -1,0 +1,43 @@
+.pagination_container {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+
+.pagination_item {
+    text-align: center;
+    cursor: pointer;
+    height: 1.2rem;
+    width: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+}
+
+.pagination_container button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dots {
+    display: flex;
+    align-items: flex-end;
+}
+
+.pagination_item:hover {
+    cursor: pointer;
+}
+
+.dots:hover {
+    background-color: transparent;
+    cursor: default;
+}
+
+.selected {
+    border-bottom: 1px solid black;
+  }
