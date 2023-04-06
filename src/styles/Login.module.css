@@ -12,3 +12,10 @@
   flex-direction: column;
   gap: 1em;
 }
+
+.error_message {
+  color: var(--red);
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  text-align: center;
+}
