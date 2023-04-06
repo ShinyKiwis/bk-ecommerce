@@ -3,12 +3,8 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Icon from "../Icon";
 import InputFieldStyle from "./InputField.module.css";
 
-function InputField({ type, placeholder }) {
+function InputField({ type, placeholder, inputKey, state, onChange }) {
   const [showPassword, setShowPassword] = useState(false);
-  const [value, setValue] = useState("");
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -18,8 +14,8 @@ function InputField({ type, placeholder }) {
       <input
         type={type === "password" ? (showPassword ? "text" : "password") : type}
         id={placeholder}
-        value={value}
-        onChange={handleChange}
+        value={state[inputKey]}
+        onChange={(e) => onChange(e, inputKey)}
         required
       />
       <label htmlFor={placeholder} className={InputFieldStyle.floating_label}>
