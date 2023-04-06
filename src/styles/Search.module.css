@@ -3,13 +3,13 @@
     grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
     column-gap: 2rem;
     row-gap: 5rem;
-    padding: 0 calc(20px + 1.5625vw);
 }
 
 .content_display {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    padding: 0 calc(20px + 1.5625vw);
 }
 
 @media only screen and (max-width: 600px) {

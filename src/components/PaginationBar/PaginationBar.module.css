@@ -5,6 +5,7 @@
     justify-content: center;
     gap: 1rem;
     align-items: center;
+    width: 100%;
 }
 
 .pagination_item {

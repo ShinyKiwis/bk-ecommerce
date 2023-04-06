@@ -176,7 +176,7 @@
     width: 20em;
   }
 
-  .searchbar_container>div:nth-child(1) {
+  .searchbar_container>svg {
     display: none;
   }
 
