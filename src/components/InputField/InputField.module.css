@@ -5,6 +5,7 @@
   align-items: center;
   padding: 0.4em 1em;
   font-size: 1.2em;
+  position: relative;
 }
 
 .input_container>input {
@@ -34,4 +35,25 @@
   .input_container {
     width: 15em;
   }
+}
+
+.input_container>input:focus ~ .floating_label,
+.input_container>input:not(:focus):valid ~ .floating_label{
+  top: -14px;
+  left: 10px;
+  color: var(--primary);
+  opacity: 1;
+  font-weight: bold;
+}
+
+.floating_label {
+  position: absolute;
+  pointer-events: none;
+  color: var(--grey);
+  transition: 0.2s ease all;
+  top:8px;
+  left: 20px;
+  background-color: var(--white);
+  font-weight: 500;
+  padding-inline: 0.2em;
 }

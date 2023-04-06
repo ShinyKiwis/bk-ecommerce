@@ -8,7 +8,7 @@ const SignUp = () => {
     <main className={SignUpStyle.signup_container}>
       <WebName />
       <h2>Create an account</h2>
-      <div className={SignUpStyle.action_container}>
+      <form className={SignUpStyle.action_container}>
         <InputField type="text" placeholder="Username" />
         <InputField type="email" placeholder="Email address" />
         <InputField type="password" placeholder="Password" />
@@ -20,7 +20,7 @@ const SignUp = () => {
             navigate("/login");
           }}
         />
-      </div>
+      </form>
     </main>
   );
 };

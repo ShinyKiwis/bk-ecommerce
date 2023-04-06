@@ -16,17 +16,24 @@ function InputField({ type, placeholder }) {
   return (
     <div className={InputFieldStyle.input_container}>
       <input
-        type={type === 'password' ? showPassword ? "text": "password" : type}
-        placeholder={placeholder}
+        type={type === "password" ? (showPassword ? "text" : "password") : type}
+        id={placeholder}
         value={value}
         onChange={handleChange}
-        
+        required
       />
+      <label htmlFor={placeholder} className={InputFieldStyle.floating_label}>
+        {placeholder}
+      </label>
       {type === "password" &&
         (showPassword ? (
-          <Icon Icon={AiFillEyeInvisible} onClick={handleShowPassword} size="1.2em"/>
+          <Icon
+            Icon={AiFillEyeInvisible}
+            onClick={handleShowPassword}
+            size="1.2em"
+          />
         ) : (
-          <Icon Icon={AiFillEye} onClick={handleShowPassword} size="1.2em"/>
+          <Icon Icon={AiFillEye} onClick={handleShowPassword} size="1.2em" />
         ))}
     </div>
   );
