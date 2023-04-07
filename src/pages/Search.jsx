@@ -2,6 +2,11 @@ import React from "react";
 import { useState, useMemo } from "react";
 import { PaginationBar, ProductItem } from "../components";
 import SearchStyle from "../styles/Search.module.css";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
+
+const dummyOptions = ["hihi", "haha", "huhu"];
+const defaultOption = dummyOptions[0];
 
 const dummy = Array(100).fill({
   name: "hoho",
@@ -14,6 +19,10 @@ let PageSize = 10;
 
 function Search() {
   const [currentPage, setCurrentPage] = useState(1);
+
+  const onSelect = (e) => {
+    console.log(e.value);
+  };
   const currentData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
@@ -22,8 +31,15 @@ function Search() {
 
   return (
     <div className={SearchStyle.content_display}>
-      <div>Result for huhu</div>
-      <div>this is a filter bar</div>
+      <div className={SearchStyle.header}>
+        <div>Result for huhu</div>
+          <Dropdown
+            options={dummyOptions}
+            onChange={onSelect}
+            value={defaultOption}
+            placeholder="Select an option"
+          />
+      </div>
       <div className={SearchStyle.list_display}>
         {currentData.map((item) => (
           <ProductItem
