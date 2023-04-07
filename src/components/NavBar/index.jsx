@@ -113,7 +113,7 @@ const NavBar = () => {
   };
 
   return (
-    <>
+    <div className={NavBarStyle.navbar_display}>
       <nav className={NavBarStyle.navbar}>
         {toggleSearch ? (
           <SearchBar
@@ -145,7 +145,7 @@ const NavBar = () => {
           handleToggleProfile={handleToggleProfile}
         />
       )}
-    </>
+    </div>
   );
 };
 

@@ -8,14 +8,14 @@ import "react-dropdown/style.css";
 const dummyOptions = ["hihi", "haha", "huhu"];
 const defaultOption = dummyOptions[0];
 
-const dummy = Array(100).fill({
+const dummy = Array(420).fill({
   name: "hoho",
   price: 5000000,
   image:
     "https://product.hstatic.net/1000392212/product/city_map_d942a93abd944547a24949398d9b0deb_master.png",
 });
 
-let PageSize = 10;
+let PageSize = 50;
 
 function Search() {
   const [currentPage, setCurrentPage] = useState(1);

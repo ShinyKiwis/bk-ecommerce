@@ -9,6 +9,14 @@
   z-index: 2;
 }
 
+/* .navbar_display {
+  position: fixed;
+  width: 100%;
+}
+
+.navbar {
+  background-color: var(--white);
+} */
 
 .not_overlay {
   position: fixed;
@@ -148,7 +156,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 1em;
-    margin-top: 1em;
+    padding: 1em 2em;
   }
 
   .navbar_action {
