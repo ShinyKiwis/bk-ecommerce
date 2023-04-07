@@ -155,6 +155,11 @@
     display: flex;
     gap: 1em;
   }
+
+  .navbar_action>svg:nth-child(1) {
+    display: none;
+  }
+
   .sidebar {
     position: fixed;
     width: 20%;

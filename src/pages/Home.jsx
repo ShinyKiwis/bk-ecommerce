@@ -29,7 +29,7 @@ const Home = () => {
   ];
   return (
     <main>
-      <NavBar />
+      {/* <NavBar /> */}
       <img
         className={HomeStyle.banner}
         src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61TD5JLGhIL._SX3000_.jpg"

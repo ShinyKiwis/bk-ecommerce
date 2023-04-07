@@ -128,7 +128,7 @@ const NavBar = () => {
             </div>
             <SearchBar handleToggle={handleToggleSearch} />
             <div className={NavBarStyle.navbar_action}>
-              <Icon Icon={AiOutlineSearch} onClick={handleToggleSearch} />
+              <Icon className={NavBarStyle.search_icon} Icon={AiOutlineSearch} onClick={handleToggleSearch} />
               <Icon
                 Icon={AiOutlineShopping}
                 onClick={() => navigate("/cart")}
