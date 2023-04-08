@@ -1,43 +1,34 @@
-import React, {useState} from "react"
-import CartItemStyles from './CartItem.module.css'
-import {QuantityButton} from "../../components"
+import React from "react";
+import CartItemStyles from "./CartItem.module.css";
+import { RxCross2 } from "react-icons/rx";
+import { QuantityButton } from "../../components";
 
-function CartItem (props) {
-  const {imgSrc, productName, productPrice, canModify, quantity, totalPrice} = props
-  const [visible, setVisible] = useState(true)
-
-  const removeItem = () => {
-    setVisible(false);
-  }
+function CartItem(props) {
+  const { imgSrc, productName, productPrice, quantity } = props;
   return (
-    (visible &&
     <div className={CartItemStyles.card}>
       <div className={CartItemStyles.image}>
-        <img 
-          src={imgSrc}
-          alt="cart item"/>
+        <img src={imgSrc} alt="cart item" />
       </div>
-      <p className={CartItemStyles.product_name}>{productName}</p>
-      <p className={CartItemStyles.product_price}>{productPrice}</p>
-      
-      {canModify ? (
-        <div className={CartItemStyles.btn}><QuantityButton className={CartItemStyles.quantityBtn}/></div>
-      ):(
-        <div className={CartItemStyles.box}>{quantity}</div>
-      )}
-
-      {canModify ? (
-        <div className={CartItemStyles.btn}>
-          <button className={CartItemStyles.removeBtn} onClick={removeItem}> 
-            Remove
-          </button> 
+      <div className={CartItemStyles.info}>
+        <div className={CartItemStyles.flex_row}>
+          <div className={CartItemStyles.product_name}>{productName}</div>
+          <button>
+            <RxCross2 />
+          </button>
         </div>
-      ):(
-        <div className={CartItemStyles.box}>{totalPrice}</div>
-      )}
+        <div className={CartItemStyles.flex_row}>
+          <div className={CartItemStyles.btn}>
+            <QuantityButton
+              className={CartItemStyles.quantityBtn}
+              defaultQuantity={quantity}
+            />
+          </div>
+          <div className={CartItemStyles.product_price}>{productPrice}</div>
+        </div>
+      </div>
     </div>
-    )
-  )
+  );
 }
 
-export default CartItem
+export default CartItem;

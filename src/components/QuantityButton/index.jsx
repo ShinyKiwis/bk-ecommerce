@@ -3,8 +3,8 @@ import { IconContext } from "react-icons";
 import { HiOutlinePlus, HiOutlineMinus } from "react-icons/hi";
 import styles from "./QuantityButton.module.css";
 
-function QuantityButton() {
-  const [quantity, setQuantity] = useState(1);
+function QuantityButton({defaultQuantity = 1}) {
+  const [quantity, setQuantity] = useState(defaultQuantity);
 
   const increase = () => {
     setQuantity((quantity) => quantity + 1);
@@ -15,7 +15,7 @@ function QuantityButton() {
   };
 
   return (
-    <IconContext.Provider value={{ size: "24px" }}>
+    <IconContext.Provider value={{ size: "1.5em" }}>
       <div className={styles.display}>
         <button
           className={styles.display__btn}

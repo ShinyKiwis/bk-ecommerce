@@ -1,13 +1,11 @@
 .card{
-    width: 84%;
-    margin: 2% 8%;
-    display: inline-grid;
-    grid-template-columns: 34% 33% 33%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     /* grid-template-rows: 34% 33% 33%; */
     grid-template-areas:
-        'image name name'
-        'image price price'
-        'image quantity remove';
+        'image info'
+        'image info';
+    grid-gap: 10px;
 }
 
 .image {
@@ -16,27 +14,40 @@
 
 .image img {
     width: 100%;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
 }
 
-.card .product_name {
-    grid-area: name;
-    font-size: 1em;
-    padding: 0 0.5em;
+.info {
+    grid-area: info;
+    width: 100%;
+    display: flex;
+    padding: calc(0.1rem + 1.5625vw) 0;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.flex_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product_name {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.product_price {
+    font-size: 1.1em;
     margin: 0;
+    font-weight: bold;
 }
 
-.card .product_price {
-    grid-area: price;
-    font-size: 0.8em;
-    padding: 0 0.5em;
-    margin: 0;
-}
-
-.card .btn{
-    padding: 0;
-    margin: 0.5em;
-    border: 0.01em solid black;
+.btn{
+    width: 5rem;
+    height: 1.5rem;
+    font-size: 0.75rem;
 }
 
 .card button {
@@ -48,24 +59,14 @@
     
 }
 
-.card .removeBtn {
-    grid-area: remove;
-    width: 100%;
-    background-color: white;
-    border: none;
-    color: black;
-    font-size: 1em;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+@media only screen and (min-width: 1100px) {
+    .btn {
+        font-size: 0.9rem;
+        width: 7.6rem;
+        height: 2rem;
+    }
 
-.box{
-    padding: 0;
-    margin: 0.5em;
-    border: 0.01em solid black;
-    display: flex;
-    justify-content: center;
-    background-color: rgb(240, 240, 240);
+    .info {
+        padding: 0.5rem 0;
+    }
 }
