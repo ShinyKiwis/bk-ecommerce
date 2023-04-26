@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import NavBarStyle from "./NavBar.module.css";
 import {
   AiOutlineMenu,
@@ -11,9 +11,26 @@ import Icon from "../Icon";
 import WebName from "../WebName";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../Button";
+import { useApi } from "../../hooks";
+import { categoriesApi } from "../../api";
 
 const SideBar = ({ toggle, handleToggle }) => {
-  const categories = ["Toy", "Phones"];
+  const navigate = useNavigate();
+  const handleOnClick = (e) => {
+    navigate(`/category`, {
+      state: {
+        id: e.target.getAttribute("data-key"),
+        name: e.target.getAttribute("data-name"),
+      },
+    });
+  };
+  const getCategoriesApi = useApi(categoriesApi.getCategories);
+
+  useEffect(() => {
+    getCategoriesApi.request();
+  }, []);
+
+  // const categories = ["Toy", "Phones"];
   return (
     <div
       className={toggle ? NavBarStyle.overlay : NavBarStyle.not_overlay}
@@ -29,8 +46,19 @@ const SideBar = ({ toggle, handleToggle }) => {
         </div>
         <div className={NavBarStyle.sidebar_content}>
           <h2>Categories</h2>
-          {categories.map((category) => {
-            return <p key={category}>{category}</p>;
+          {getCategoriesApi.loading && <p>Loading...</p>}
+          {getCategoriesApi.error && <p>{getCategoriesApi.error}</p>}
+          {getCategoriesApi.data?.data.map((category) => {
+            return (
+              <div
+                key={category.id}
+                data-key={category.id}
+                data-name={category.name}
+                onClick={(e) => handleOnClick(e)}
+              >
+                {category.name}
+              </div>
+            );
           })}
         </div>
       </div>
@@ -69,6 +97,18 @@ const Modal = ({ toggleProfile, handleToggleProfile }) => {
 
 const SearchBar = ({ toggleSearch, handleToggle }) => {
   const searchBarRef = useRef();
+  const navigate = useNavigate();
+  const [inputText, setInputText] = useState("");
+  const inputHandler = (e) => {
+    setInputText(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputText !== "") {
+      navigate(`/search?q=${inputText}`);
+    }
+  }
 
   return (
     <div
@@ -80,17 +120,20 @@ const SearchBar = ({ toggleSearch, handleToggle }) => {
     >
       <Icon Icon={AiOutlineClose} onClick={handleToggle} />
       <div className={NavBarStyle.searchbar} ref={searchBarRef}>
-        <input
-          type="text"
-          placeholder="Search..."
-          onFocus={() => {
-            searchBarRef.current.style.borderColor = "var(--primary)";
-          }}
-          onBlur={() => {
-            searchBarRef.current.style.borderColor = "var(--black)";
-          }}
-        />
-        <Icon Icon={AiOutlineSearch} />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search..."
+            onFocus={() => {
+              searchBarRef.current.style.borderColor = "var(--primary)";
+            }}
+            onBlur={() => {
+              searchBarRef.current.style.borderColor = "var(--black)";
+            }}
+            onChange={inputHandler}
+          />
+          <Icon Icon={AiOutlineSearch} />
+        </form>
       </div>
     </div>
   );
@@ -128,7 +171,11 @@ const NavBar = () => {
             </div>
             <SearchBar handleToggle={handleToggleSearch} />
             <div className={NavBarStyle.navbar_action}>
-              <Icon className={NavBarStyle.search_icon} Icon={AiOutlineSearch} onClick={handleToggleSearch} />
+              <Icon
+                className={NavBarStyle.search_icon}
+                Icon={AiOutlineSearch}
+                onClick={handleToggleSearch}
+              />
               <Icon
                 Icon={AiOutlineShopping}
                 onClick={() => navigate("/cart")}

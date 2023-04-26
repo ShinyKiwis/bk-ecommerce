@@ -62,7 +62,7 @@
 }
 
 
-.searchbar>input {
+.searchbar input {
   font-family: 'Roboto Condensed';
   font-size: 1.2em;
   padding: 0;
@@ -70,13 +70,13 @@
   border: none;
 }
 
-.searchbar>input::placeholder {
+.searchbar input::placeholder {
   font-family: 'Roboto Condensed';
   color: var(--grey);
 }
 
 
-.searchbar>input:focus {
+.searchbar input:focus {
   outline: none;
 }
 
@@ -143,6 +143,11 @@
     display: flex;
   }
 
+  .searchbar>form {
+    display: flex;
+    justify-content: center;
+  }
+
   .searchbar>input {
     width: 13em;
   }
@@ -181,11 +186,11 @@
     font-size: 1.5em;
     cursor: pointer;
   }
-  .searchbar {
+  .searchbar>form {
     display: flex;
     align-items: center;
   }
-  .searchbar>input{
+  .searchbar input{
     width: 20em;
   }
 

@@ -1,9 +1,12 @@
 import React from "react";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { PaginationBar, ProductItem } from "../components";
 import SearchStyle from "../styles/Search.module.css";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import { useApi } from "../hooks";
+import { productsApi } from "../api";
+import { useSearchParams } from "react-router-dom";
 
 const dummyOptions = ["hihi", "haha", "huhu"];
 const defaultOption = dummyOptions[0];
@@ -19,20 +22,29 @@ let PageSize = 50;
 
 function Search() {
   const [currentPage, setCurrentPage] = useState(1);
+  const getProductsByQueryApi = useApi(productsApi.getProductByQuery);
+  // const {state} = useLocation();
+  // const {id,name} = state;
+  const [searchParam] = useSearchParams();
+  const searchTerm = searchParam.get('q')
 
   const onSelect = (e) => {
     console.log(e.value);
   };
+  useEffect(() => {
+    getProductsByQueryApi.request(searchTerm);
+  }, [searchParam])
+
   const currentData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    return dummy.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage]);
+    return getProductsByQueryApi.data?.data.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, getProductsByQueryApi.data, searchParam]);
 
   return (
     <div className={SearchStyle.content_display}>
       <div className={SearchStyle.header}>
-        <div>Result for huhu</div>
+        <div>{`Result for ${searchTerm}`}</div>
           <Dropdown
             options={dummyOptions}
             onChange={onSelect}
@@ -41,11 +53,15 @@ function Search() {
           />
       </div>
       <div className={SearchStyle.list_display}>
-        {currentData.map((item) => (
+        {getProductsByQueryApi.loading && <p>Loading...</p>}
+        {getProductsByQueryApi.error && <p>{getProductsByQueryApi.error}</p>}
+        {currentData?.map((item) => (
           <ProductItem
+            key={item.id}
+            productId={item.id}
             productName={item.name}
             productPrice={item.price}
-            productImage={item.image}
+            productImage={item.photo_url}
           />
         ))}
       </div>
