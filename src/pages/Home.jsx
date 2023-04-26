@@ -1,14 +1,20 @@
 import HomeStyle from "../styles/Home.module.css";
 import { useDraggable } from "react-use-draggable-scroll";
 import NavBar from "../components/NavBar";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useApi } from "../hooks";
+import { categoriesApi } from "../api";
+import { useNavigate } from "react-router-dom";
 
-const CategoryItem = ({ categoryName }) => {
+const CategoryItem = ({ categoryName, categoryId, categoryImage }) => {
+  const navigate = useNavigate();
+  const handleOnClick = () => navigate('/category', { state: {id: categoryId, name: categoryName}});
+
   return (
-    <div className={HomeStyle.category_item_container}>
+    <div className={HomeStyle.category_item_container} onClick={handleOnClick}>
       <img
-        src="https://www.royalautomobileclub.co.uk/wp-content/uploads/2021/01/shutterstock_tablet_laptop_phone-scaled.jpg"
-        alt="category"
+        src={categoryImage}
+        alt={categoryName}
       />
       <span>{categoryName}</span>
     </div>
@@ -18,15 +24,13 @@ const CategoryItem = ({ categoryName }) => {
 const Home = () => {
   const ref = useRef();
   const { events } = useDraggable(ref);
-  const categories = [
-    "Phones",
-    "Computers",
-    "Tablets",
-    "Headphones",
-    "Controllers",
-    "Mouses",
-    "Keyboards",
-  ];
+
+  const getCategoriesApi = useApi(categoriesApi.getCategories);
+
+  useEffect(() => {
+    getCategoriesApi.request();
+  }, []);
+
   return (
     <main>
       {/* <NavBar /> */}
@@ -37,9 +41,12 @@ const Home = () => {
       />
       <div className={HomeStyle.category_container}>
         <h2>Shop by category</h2>
+        {getCategoriesApi.loading && <p>Loading...</p>}
+        {getCategoriesApi.error && <p>{getCategoriesApi.error}</p>}
         <div className={HomeStyle.category_slider} {...events} ref={ref}>
-          {categories.map((category) => (
-            <CategoryItem categoryName={category} key={category} />
+          {/* {getCategoriesApi.loading ? null : console.log(getCategoriesApi.data?.data)} */}
+          {getCategoriesApi.data?.data.map((category) => (
+            <CategoryItem categoryName={category.name} categoryId={category.id} categoryImage={category.photo_url} key={category.id} />
           ))}
         </div>
       </div>

@@ -10,6 +10,7 @@ import {
   Account,
   Product,
   Search,
+  Category,
 } from "./pages";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/product" element={<Product />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/category" element={<Category/>}/>
       </Routes>
     </BrowserRouter>
   );

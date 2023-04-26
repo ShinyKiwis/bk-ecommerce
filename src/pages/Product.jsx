@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ImageSlider, ProductInfo } from "../components";
 import ProductStyle from "../styles/Product.module.css";
+import { useApi } from "../hooks";
+import { productsApi } from "../api";
+import { useLocation } from "react-router-dom";
 
 const dummyImages = [
   "https://product.hstatic.net/1000392212/product/city_map_d942a93abd944547a24949398d9b0deb_master.png",
@@ -23,14 +26,30 @@ const dummy = {
 };
 
 function Product() {
+  const getProductApi = useApi(productsApi.getProductById);
+  const { state } = useLocation();
+  const { id } = state;
+
+  useEffect(() => {
+    getProductApi.request(id);
+  },[]);
+
   return (
     <div className={ProductStyle.display}>
-      <div className={ProductStyle.slider}>
-        <ImageSlider images={dummyImages}></ImageSlider>
-      </div>
-      <div>
-        <ProductInfo {...dummy} />
-      </div>
+      {getProductApi.loading && <p>Loading...</p>}
+      {getProductApi.error && <p>{getProductApi.error}</p>}
+      {getProductApi.data && (
+        <>
+          <div className={ProductStyle.slider}>
+            <ImageSlider
+              images={getProductApi.data?.data[0].photo_url}
+            ></ImageSlider>
+          </div>
+          <div>
+            <ProductInfo name={getProductApi.data.data[0].name} price={getProductApi.data.data[0].price} description={[getProductApi.data.data[0].description]} shippingInfo={[]}/>
+          </div>
+        </>
+      )}
     </div>
   );
 }
