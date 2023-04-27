@@ -6,7 +6,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { useApi } from "../hooks";
 import { productsApi } from "../api";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const dummyOptions = ["hihi", "haha", "huhu"];
 const defaultOption = dummyOptions[0];

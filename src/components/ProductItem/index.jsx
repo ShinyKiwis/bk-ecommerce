@@ -10,7 +10,7 @@ function ProductItem({productId, productName, productPrice, productImage}) {
         <img src={productImage[0]} alt={productName} />
         <div className={ProductItemStyle.product_info}>
             <div>{productName}</div>
-            <div>{productPrice}</div>
+            <div>${productPrice}</div>
         </div>
     </div>
   )
