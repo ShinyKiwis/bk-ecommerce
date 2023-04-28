@@ -70,7 +70,8 @@ const SignUp = () => {
       console.log(register.data.data);
       navigate('/login')
     }
-    console.log("Register successfully!");
+    alert("Register successfully!");
+    navigate("/login")
   };
   return (
     <main className={SignUpStyle.signup_container}>

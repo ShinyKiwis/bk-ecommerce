@@ -54,14 +54,15 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(state);
+    // console.log(state);
     setToggleError(!toggleError);
     await logIn.request(state.username, state.password);
+    // console.log("Login:", logIn)
     if(logIn.error) {
-      console.log(logIn.error)
+      // console.log(logIn.error)
     } else if(logIn.data) {
       if(logIn.data.data == 'Failed') {
-        console.log('Failed');
+        // console.log('Failed');
       } else {
         logInUser(state.username);
         navigate('/');
