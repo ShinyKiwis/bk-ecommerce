@@ -1,6 +1,24 @@
 .checkout_container {
+  position: absolute;
+  left: 30%;
+  right:30%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1em;
+}
+
+.checkout_info {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.payment_container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.paypal {
+  margin-left: auto;
 }

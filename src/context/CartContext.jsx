@@ -10,9 +10,15 @@ export function useCart() {
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState([]);
+  const [total, setTotal] = useState(0)
 
   function getItemQuantity(id) {
     return items.find((item) => item.id === id)?.quantity || 0;
+  }
+
+  function calculateTotal(newTotal) {
+    console.log("NEWTOTAL: ", newTotal)
+    setTotal(newTotal)
   }
 
   function clearItems() {
@@ -73,6 +79,8 @@ export function CartProvider({ children }) {
     <CartContext.Provider
       value={{
         items,
+        total,
+        calculateTotal,
         getItemQuantity,
         addItemQuantity,
         increaseItemQuantity,

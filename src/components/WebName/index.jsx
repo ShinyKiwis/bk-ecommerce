@@ -1,9 +1,14 @@
-import WebNameStyle from "./WebName.module.css"
+import { useNavigate } from "react-router-dom";
+import WebNameStyle from "./WebName.module.css";
 
 const WebName = () => {
+  const navigate = useNavigate();
   return (
-    <h1 className={WebNameStyle.webname}>BkeL</h1>
-  )
-}
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+    <h1 className={WebNameStyle.webname} onClick={() => navigate("/")}>
+      BkeL
+    </h1>
+  );
+};
 
-export default WebName
+export default WebName;

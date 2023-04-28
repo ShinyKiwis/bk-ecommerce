@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import CartSummaryStyle from './CartSummary.module.css'
 import Button from '../Button'
 
-function CartSummary({subtotal, shippingFee, discount}) {
+function CartSummary({subtotal, shippingFee, discount, isCheckout}) {
   const navigate = useNavigate()
   return (
     <div className={CartSummaryStyle.summary}>
@@ -25,7 +25,7 @@ function CartSummary({subtotal, shippingFee, discount}) {
             <div>Total</div>
             <div>${subtotal - discount + shippingFee}</div>
         </div>
-        <Button isPrimary={true} textContent="Checkout" onClick={() => navigate("/checkout")}/>
+        {!isCheckout && <Button isPrimary={true} textContent="Checkout" onClick={() => navigate("/checkout")}/>}
     </div>
   )
 }

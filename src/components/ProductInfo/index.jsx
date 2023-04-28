@@ -4,10 +4,16 @@ import styles from "./ProductInfo.module.css";
 import Button from "../Button";
 import { useCart } from "../../context/CartContext";
 
-
-function ProductInfo({ id, name, price, description, photo_url, shippingInfo=[]}) {
+function ProductInfo({
+  id,
+  name,
+  price,
+  description,
+  photo_url,
+  shippingInfo = [],
+}) {
   const [quantity, setQuantity] = useState(1);
-  const {addItemQuantity} = useCart()
+  const { addItemQuantity } = useCart();
 
   const increase = () => {
     setQuantity((quantity) => quantity + 1);
@@ -24,10 +30,10 @@ function ProductInfo({ id, name, price, description, photo_url, shippingInfo=[]}
       price: price,
       description: description,
       photo_url: photo_url[0],
-      quantity: quantity
-    }
-    addItemQuantity(cartItem)
-  }
+      quantity: quantity,
+    };
+    addItemQuantity(cartItem);
+  };
 
   return (
     <div className={styles.product}>
@@ -48,11 +54,21 @@ function ProductInfo({ id, name, price, description, photo_url, shippingInfo=[]}
             <li key={ship}>{ship}</li>
           ))}
         </ul>
-        <div className={styles.quantity}>
-          <QuantityButton quantity={quantity} onIncrease={increase} onDecrease={decrease}/>
-        </div>
-        <div>
-          <Button isPrimary={true} textContent="Add to cart" onClick={addToCart}/>
+        <div className={styles.action_container}>
+          <div className={styles.quantity}>
+            <QuantityButton
+              quantity={quantity}
+              onIncrease={increase}
+              onDecrease={decrease}
+            />
+          </div>
+          <div>
+            <Button
+              isPrimary={true}
+              textContent="Add to cart"
+              onClick={addToCart}
+            />
+          </div>
         </div>
       </div>
     </div>

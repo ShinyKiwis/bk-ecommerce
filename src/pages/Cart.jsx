@@ -4,15 +4,21 @@ import CartStyles from "../styles/Cart.module.css";
 import CartSummary from "../components/CartSummary";
 import { useCart } from "../context/CartContext";
 
-const Cart = () => {
+const Cart = ({isCheckout}) => {
   const [total, setTotal] = useState(0)
-  const {items} = useCart()
+  const {items, calculateTotal} = useCart()
   useEffect(() => {
     setTotal(0)
     items.forEach(item => {
       setTotal(total => total + item.price * item.quantity)
     })
   }, [items])
+
+  useEffect(()=>{
+    if(total!==0) {
+      calculateTotal(total)
+    }
+  }, [total])
 
   return (
     <div className={CartStyles.cart}>
@@ -33,7 +39,7 @@ const Cart = () => {
             );
           })}
         </ul>
-        <CartSummary subtotal={total} discount={0} shippingFee={20} />
+        <CartSummary subtotal={total} discount={0} shippingFee={20} isCheckout={isCheckout}/>
       </div>
     </div>
   );
