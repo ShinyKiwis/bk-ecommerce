@@ -2,6 +2,9 @@ import { useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, InputField, WebName } from "../components";
 import LoginStyle from "../styles/Login.module.css";
+import { useApi } from "../hooks";
+import { userApi } from "../api";
+import { useUser } from "../context/UserContext";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -23,10 +26,12 @@ const reducer = (state, action) => {
 const Login = () => {
   const navigate = useNavigate();
   const [toggleError, setToggleError] = useState(false);
+  const {user, logInUser} = useUser();
   const [state, dispatch] = useReducer(reducer, {
     username: "",
     password: "",
   });
+  const logIn = useApi(userApi.logIn);
   const inputFields = [
     {
       type: "text",
@@ -47,10 +52,21 @@ const Login = () => {
     });
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     console.log(state);
     setToggleError(!toggleError);
+    await logIn.request(state.username, state.password);
+    if(logIn.error) {
+      console.log(logIn.error)
+    } else if(logIn.data) {
+      if(logIn.data.data == 'Failed') {
+        console.log('Failed');
+      } else {
+        logInUser(state.username);
+        navigate('/');
+      }
+    }
   };
 
   return (

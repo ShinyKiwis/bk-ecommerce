@@ -2,6 +2,8 @@ import { useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, InputField, WebName } from "../components";
 import SignUpStyle from "../styles/SignUp.module.css";
+import { useApi } from "../hooks";
+import { userApi } from "../api";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -33,6 +35,7 @@ const SignUp = () => {
     email: "",
     password: "",
   });
+  const register = useApi(userApi.register);
   const inputFields = [
     {
       type: "text",
@@ -58,8 +61,15 @@ const SignUp = () => {
     });
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+    await register.request(state.username, state.password);
+    if(register.error) {
+      console.log(register.error);
+    } else if(register.data) {
+      console.log(register.data.data);
+      navigate('/login')
+    }
     console.log("Register successfully!");
   };
   return (
